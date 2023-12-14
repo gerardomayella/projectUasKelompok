@@ -294,7 +294,7 @@ public class Mainproject {
                     System.out.println("Banyak Objek Wisata Dikunjungi : " + banyakTempatWisataPaket3[i]);
                 }
                 System.out.println("Destinasi : " + destinasiPilihanWisata[i]);
-                System.out.println("Harga total : " + hargaTotal[i]);
+                System.out.println("Harga total : Rp " + hargaTotal[i]);
                 System.out.println("================================================");
             }
 
@@ -313,10 +313,9 @@ public class Mainproject {
                     System.out.println("Banyak Jenis Olahraga Air : " + banyakOrangPaket3Olahraga[i]);
                 }
                 System.out.println("Destinasi : " + destinasiKhususOlahraga[i]);
-                System.out.println("Harga total : " + hargaTotalOlahraga[i]);
+                System.out.println("Harga total : Rp " + hargaTotalOlahraga[i]);
                 System.out.println("================================================");
             }
-            // munculin tiket anggi
         }
 
     }
@@ -329,7 +328,7 @@ public class Mainproject {
         } else {
             System.out.println("--------------------PAKET WISATA-----------------");
             System.out.println("TUJUAN DESTINASI : ");
-            System.out.print("    -Tempat destinasi : ");
+            System.out.println("    -Tempat destinasi : ");
             for (int i = 0; i < destinasi.length; i++)
                 System.out.println("     " + (i + 1) + ". " + destinasi[i]);
             System.out.println();
@@ -432,9 +431,9 @@ public class Mainproject {
             System.out.println();
             System.out.println("HARGA : ");
             if (paketWisataPilihan[tiketCounterWisata] == 3) {
-                hargaTotal[tiketCounterWisata] = 5000000 * banyakHariPaket3[tiketCounterWisata]
-                        * banyakOrangPaket3[tiketCounterWisata] * banyakTempatWisataPaket3[tiketCounterWisata];
-                System.out.println("    -Harga total : " + hargaTotal[tiketCounterWisata]);
+                hargaTotal[tiketCounterWisata] = 500000 * (banyakHariPaket3[tiketCounterWisata]
+                        + banyakOrangPaket3[tiketCounterWisata] + banyakTempatWisataPaket3[tiketCounterWisata]);
+                System.out.println("    -Harga total : Rp " + hargaTotal[tiketCounterWisata]);
                 System.out.println("    -Jenis pembayaran : ");
                 System.out.println("      1. Kartu debit");
                 System.out.println("      2. Cash  ");
@@ -569,17 +568,17 @@ public class Mainproject {
             System.out.println();
             System.out.println("HARGA : ");
             if (paketPilihanOlahraga[tiketCounterOlahraga] == 3) {
-                hargaTotalOlahraga[tiketCounterOlahraga] = 4500000 * banyakHariPaket3Olahraga[tiketCounterOlahraga]
-                        * banyakOrangPaket3Olahraga[tiketCounterOlahraga]
-                        * banyakJenisOlahragaPaket3[tiketCounterOlahraga];
-                System.out.println("    -Harga total : " + hargaTotalOlahraga[tiketCounterOlahraga]);
+                hargaTotalOlahraga[tiketCounterOlahraga] = 450000 * (banyakHariPaket3Olahraga[tiketCounterOlahraga]
+                        + banyakOrangPaket3Olahraga[tiketCounterOlahraga]
+                        + banyakJenisOlahragaPaket3[tiketCounterOlahraga]);
+                System.out.println("    -Harga total : Rp " + hargaTotalOlahraga[tiketCounterOlahraga]);
                 System.out.println("    -Jenis pembayaran : ");
                 System.out.println("    1. Kartu debit");
                 System.out.println("    2. Cash ");
                 System.out.println("    3. Gopay ");
             } else {
                 System.out.println(
-                        "    -Harga total : " + hargaPaketOlahraga[paketPilihanOlahraga[tiketCounterOlahraga]]);
+                        "    -Harga total : Rp " + hargaPaketOlahraga[paketPilihanOlahraga[tiketCounterOlahraga]]);
                 System.out.println("    -Jenis pembayaran : ");
                 System.out.println("    1. Kartu debit");
                 System.out.println("    2. Cash");
