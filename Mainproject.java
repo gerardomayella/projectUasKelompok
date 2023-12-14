@@ -12,17 +12,18 @@ public class Mainproject {
             paketOlahraga = { "Paket 1", "Paket 2", "Paket 3" };
     public static String[] fiturPaket = {
             "Fitur; -untuk 2 orang, -Hotel Bintang 5, -Menginap 2 Malam, -4 Tempat Wisata Include",
-            "Fitur; -untuk 4 orang, -Hotel Bintang 5, -Menginap 3 Malam, -6 Tempat Wisata Include" },
-            fiturpaketOlahraga = { "afiubwsrgblfuerageafib0" };
-    // fiturPaket anggi
-
+            "Fitur; -untuk 4 orang, -Hotel Bintang 5, -Menginap 3 Malam, -6 Tempat Wisata Include", },
+            fiturPaketOlahraga = {
+                    "Fitur; -untuk 2 orang, -Jetski, -Kano",
+                    "Fitur; -untuk 4 orang, -Ski air, -Flyboard, -Polo air" };
     public static int[] hargaPaketWisata = { 5000000, 13000000 };
+    public static int[] hargaPaketOlahraga = { 4500000, 12000000 };
     public static int[] hargaKapal = { 40000000, 24000000, 200000, 44000000, 56000000, 50000000, 90000000 };
     public static int[] kapalPilihan = new int[20], paketWisataPilihan = new int[30], banyakOrangPaket3 = new int[5],
             banyakTempatWisataPaket3 = new int[5], banyakHariPaket3 = new int[5], hargaTotal = new int[9],
             hargaTotalOlahraga = new int[10], banyakOrangPaket3Olahraga = new int[10],
             banyakHariPaket3Olahraga = new int[20], banyakJenisOlahragaPaket3 = new int[10],
-            paketOlahragaPilihan = new int[10];
+            paketPilihanOlahraga = new int[10];
 
     public static int kapalAv = 7, wisataAv = 20, olahragaAv = 10, jenisPembayaran;
     public static String[] destinasiPilihanWisata = new String[20], destinasiPilihanKapal = new String[10],
@@ -40,6 +41,7 @@ public class Mainproject {
 
         System.out.println("APLIKASI TIKET SEWA KAPAL DAN PARIWISATA AIR");
         System.out.println("==============================================");
+
         do {
             System.out.print("LOGIN NAMA ANDA : ");
             namaLogin = input.nextLine();
@@ -297,8 +299,26 @@ public class Mainproject {
             }
 
         } else if (jenisTkt == 3) {
+            for (int i = 0; i < tiketCounterOlahraga; i++) {
+                System.out.println("Tiket ke " + (i + 1));
+                System.out.println();
+                System.out.println("=============================================");
+                System.out.println("Nama pembeli : " + namaLogin);
+                System.out.println(
+                        "Hari/Tanggal/Tahun : " + hariOlahraga[i] + "/" + tanggalOlahraga[i] + "/" + tahunOlahraga[i]);
+                System.out.println("Jenis Paket : " + paketPilihanOlahraga[i]);
+                if (paketPilihanOlahraga[i] == 3) {
+                    System.out.println("Banyak Orang : " + banyakOrangPaket3Olahraga[i]);
+                    System.out.println("Banyak Hari : " + banyakHariPaket3Olahraga[i]);
+                    System.out.println("Banyak Jenis Olahraga Air : " + banyakOrangPaket3Olahraga[i]);
+                }
+                System.out.println("Destinasi : " + destinasiKhususOlahraga[i]);
+                System.out.println("Harga total : " + hargaTotalOlahraga[i]);
+                System.out.println("================================================");
+            }
             // munculin tiket anggi
         }
+
     }
 
     public static void paketWisata() {
@@ -446,12 +466,137 @@ public class Mainproject {
 
         if (tiketCounterOlahraga == olahragaAv) {
             System.out.println("Kecukupan tiket sudah habis");
-        } else {// mekanisme tiket anggi
-
+        } else {
+            System.out.println("--------------------OLAHRAGA AIR-----------------");
+            System.out.println("TUJUAN DESTINASI : ");
+            System.out.println("    -Tempat destinasi : ");
+            for (int i = 0; i < destinasiKhususOlahraga.length; i++)
+                System.out.println("     " + (i + 1) + ". " + destinasiKhususOlahraga[i]);
+            System.out.println();
+            while (!inputMatches) {
+                System.out.print("    Pilih tempat olahraga air anda: ");
+                destinasiKhususOlahraga[tiketCounterOlahraga] = input.nextLine();
+                for (String keyword : destinasiKhususOlahraga) {
+                    if (destinasiKhususOlahraga[tiketCounterOlahraga].equalsIgnoreCase(keyword))
+                        inputMatches = true;
+                }
+                if (inputMatches == false)
+                    System.out.println("Inputan anda salah");
+            }
+            System.out.println();
+            System.out.println("PAKET OLAHRAGA AIR: ");
+            System.out.println("    Paket 1");
+            System.out.println("    Paket 2");
+            System.out.println("    Paket 3");
+            while (inputMatches) {
+                System.out.print("    Pilih paket olahraga air (nomor) : ");
+                paketPilihanOlahraga[tiketCounterOlahraga] = input.nextInt();
+                input.nextLine();
+                if (paketPilihanOlahraga[tiketCounterOlahraga] > 0 && paketPilihanOlahraga[tiketCounterOlahraga] < 4)
+                    inputMatches = false;
+                else
+                    System.out.println("Inputan anda salah ");
+            }
+            while (!inputMatches) {
+                if (paketPilihanOlahraga[tiketCounterOlahraga] == 1) {
+                    System.out.println(" " + fiturPaketOlahraga[1]);
+                } else if (paketPilihanOlahraga[tiketCounterOlahraga] == 2) {
+                    System.out.println(" " + fiturPaketOlahraga[2]);
+                } else if (paketPilihanOlahraga[tiketCounterOlahraga] == 3) {
+                    System.out.println(
+                            "Fitur; didalam paket ini akan menentukan banyak orang, banyak olahraga air, banyak hari");
+                    System.out.println();
+                    do {
+                        System.out.print("    Berapa banyak orang yang ingin menggunakannya : ");
+                        banyakOrangPaket3Olahraga[tiketCounterOlahraga] = input.nextInt();
+                        if (banyakOrangPaket3Olahraga[tiketCounterOlahraga] < 1)
+                            System.out.println("Banyak orang harus lebih dari 1");
+                    } while (banyakOrangPaket3Olahraga[tiketCounterOlahraga] < 1);
+                    do {
+                        System.out.print("    Berapa hari anda ingin menggunakannya : ");
+                        banyakHariPaket3Olahraga[tiketCounterOlahraga] = input.nextInt();
+                        if (banyakHariPaket3Olahraga[tiketCounterOlahraga] < 1)
+                            System.out.println("Banyak hari harus lebih dari 1");
+                    } while (banyakHariPaket3Olahraga[tiketCounterOlahraga] < 1);
+                    do {
+                        System.out.print("    Berapa banyak jenis olahraga air yang ingin anda pakai : ");
+                        banyakJenisOlahragaPaket3[tiketCounterOlahraga] = input.nextInt();
+                        if (banyakJenisOlahragaPaket3[tiketCounterOlahraga] < 1)
+                            System.out.println("Banyak orang harus lebih dari 1");
+                    } while (banyakJenisOlahragaPaket3[tiketCounterOlahraga] < 1);
+                    input.nextLine();
+                }
+                System.out.print("    Apakah paket di atas sudah benar (iya/tidak): ");
+                String check = input.nextLine();
+                if (check.equalsIgnoreCase("iya"))
+                    inputMatches = true;
+                else if (check.equalsIgnoreCase("tidak"))
+                    System.out.println();
+                else
+                    System.out.println("Inputan anda salah tetapi kami anggap itu tidak");
+            }
+            System.out.println("JADWAL PAKET OLAHRAGA AIR : ");
+            while (inputMatches) {
+                System.out.print("    -Masukkan nama hari : ");
+                hariOlahraga[tiketCounterOlahraga] = input.nextLine();
+                for (String keyword : keywordsForHari) {
+                    if (hariOlahraga[tiketCounterOlahraga].equalsIgnoreCase(keyword))
+                        inputMatches = false;
+                }
+                if (inputMatches == true)
+                    System.out.println("Inputan anda bukan nama hari");
+            }
+            while (!inputMatches) {
+                System.out.print("    -Masukkan tanggal (angka) : ");
+                tanggalOlahraga[tiketCounterOlahraga] = input.nextInt();
+                if (tanggalOlahraga[tiketCounterOlahraga] < 32 && tanggalOlahraga[tiketCounterOlahraga] > 0) {
+                    inputMatches = true;
+                } else {
+                    System.out.println("Inputan anda salah");
+                }
+            }
+            while (inputMatches) {
+                System.out.print("    -Masukkan bulan (angka) : ");
+                bulanOlahraga[tiketCounterOlahraga] = input.nextInt();
+                if (bulanOlahraga[tiketCounterOlahraga] < 13 && bulanOlahraga[tiketCounterOlahraga] > 0) {
+                    inputMatches = false;
+                } else {
+                    System.out.println("Inputan anda salah");
+                }
+            }
+            System.out.print("    -Masukkan tahun : ");
+            tahunOlahraga[tiketCounterOlahraga] = input.nextInt();
+            System.out.println();
+            System.out.println("HARGA : ");
+            if (paketPilihanOlahraga[tiketCounterOlahraga] == 3) {
+                hargaTotalOlahraga[tiketCounterOlahraga] = 4500000 * banyakHariPaket3Olahraga[tiketCounterOlahraga]
+                        * banyakOrangPaket3Olahraga[tiketCounterOlahraga]
+                        * banyakJenisOlahragaPaket3[tiketCounterOlahraga];
+                System.out.println("    -Harga total : " + hargaTotalOlahraga[tiketCounterOlahraga]);
+                System.out.println("    -Jenis pembayaran : ");
+                System.out.println("    1. Kartu debit");
+                System.out.println("    2. Cash ");
+                System.out.println("    3. Gopay ");
+            } else {
+                System.out.println(
+                        "    -Harga total : " + hargaPaketOlahraga[paketPilihanOlahraga[tiketCounterOlahraga]]);
+                System.out.println("    -Jenis pembayaran : ");
+                System.out.println("    1. Kartu debit");
+                System.out.println("    2. Cash");
+                System.out.println("    3. Gopay");
+                hargaTotalOlahraga[tiketCounterOlahraga] = hargaPaketOlahraga[paketPilihanOlahraga[tiketCounterOlahraga]];
+            }
+            while (!inputMatches) {
+                System.out.print("    Pilih salah satu jenis pembayaran (nomor) : ");
+                jenisPembayaran = input.nextInt();
+                if (jenisPembayaran > 0 && jenisPembayaran < 4) {
+                    inputMatches = true;
+                } else {
+                    System.out.println("Inputan anda salah");
+                }
+            }
+            System.out.println("Selamat, tiket anda telah keluar, untuk melihat tiket silahkan lihat menut ke 4");
         }
-        olahragaAv++;
+        tiketCounterOlahraga++;
     }
 }
-
-// jikalau tanggal, bulan dan tahun diinputkan selain angka maka akan error
-// ada sistem buffer
