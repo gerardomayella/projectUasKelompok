@@ -8,22 +8,29 @@ public class Mainproject {
             "EcoTravel Bukit Lawangan", "Adventure Scuba Diving Bali" };
     public static String[] kapal = { "Yatch Catamaran 1.2", "Utopian Catamaran", "Kapal Mancing Ryan", "Pinissi Boat",
             "Yatch Azimuth", "Yatch Catamaran FeadShip", "Yacth Accura 49 Luxury" };
-    public static String[] paketWisata = { "Paket 1", "Paket 2", "Paket 3" };
+    public static String[] paketWisata = { "Paket 1", "Paket 2", "Paket 3" },
+            paketOlahraga = { "Paket 1", "Paket 2", "Paket 3" };
     public static String[] fiturPaket = {
             "Fitur; -untuk 2 orang, -Hotel Bintang 5, -Menginap 2 Malam, -4 Tempat Wisata Include",
-            "Fitur; -untuk 4 orang, -Hotel Bintang 5, -Menginap 3 Malam, -6 Tempat Wisata Include" };
+            "Fitur; -untuk 4 orang, -Hotel Bintang 5, -Menginap 3 Malam, -6 Tempat Wisata Include" },
+            fiturpaketOlahraga = { "afiubwsrgblfuerageafib0" };
+    // fiturPaket anggi
 
     public static int[] hargaPaketWisata = { 5000000, 13000000 };
     public static int[] hargaKapal = { 40000000, 24000000, 200000, 44000000, 56000000, 50000000, 90000000 };
     public static int[] kapalPilihan = new int[20], paketWisataPilihan = new int[30], banyakOrangPaket3 = new int[5],
-            banyakTempatWisataPaket3 = new int[5], banyakHariPaket3 = new int[5], hargaTotal = new int[9];
+            banyakTempatWisataPaket3 = new int[5], banyakHariPaket3 = new int[5], hargaTotal = new int[9],
+            hargaTotalOlahraga = new int[10], banyakOrangPaket3Olahraga = new int[10],
+            banyakHariPaket3Olahraga = new int[20], banyakJenisOlahragaPaket3 = new int[10],
+            paketOlahragaPilihan = new int[10];
 
     public static int kapalAv = 7, wisataAv = 20, olahragaAv = 10, jenisPembayaran;
     public static String[] destinasiPilihanWisata = new String[20], destinasiPilihanKapal = new String[10],
             destinasiPilihanOlahraga = new String[20];
-    public static String[] hari = new String[10], hariWisata = new String[20];
+    public static String[] hari = new String[10], hariWisata = new String[20], hariOlahraga = new String[20];
     public static int[] bulan = new int[10], tahun = new int[10], tanggal = new int[10], bulanWisata = new int[20],
-            tahunWisata = new int[20], tanggalWisata = new int[20];
+            tahunWisata = new int[20], tanggalWisata = new int[20], tahunOlahraga = new int[20],
+            tanggalOlahraga = new int[20], bulanOlahraga = new int[20];
     public static int tiketCounterKapal = 0, tiketCounterWisata = 0, tiketCounterOlahraga = 0;
     public static boolean ticketEligibility = false, menuCheck = false;
     public static String namaLogin;
@@ -33,19 +40,18 @@ public class Mainproject {
 
         System.out.println("APLIKASI TIKET SEWA KAPAL DAN PARIWISATA AIR");
         System.out.println("==============================================");
-        System.out.println("\ud83d\ude01");
         do {
             System.out.print("LOGIN NAMA ANDA : ");
             namaLogin = input.nextLine();
             System.out.println("");
             if (isValidName(namaLogin))
-                System.out.println("maaf apa yang anda inputkan bukanlah nama");
+                System.out.println("Maaf apa yang anda inputkan bukanlah nama");
 
         } while (isValidName(namaLogin));
 
         mainMenu();
 
-        System.out.println("program selesai");
+        System.out.println("Program selesai");
 
     }
 
@@ -77,7 +83,7 @@ public class Mainproject {
                 System.out.println("4. Tiket Anda");
                 System.out.println("5. Keluar");
                 System.out.println("");
-                System.out.println("masukkan menu anda (1 - 5) : ");
+                System.out.print("masukkan menu anda (1 - 5) : ");
                 menu = input.nextInt();
                 input.nextLine();
 
@@ -96,7 +102,7 @@ public class Mainproject {
                 menuCheck = false;
 
             } else if (menu == 3) {
-                olaragaAir();
+                olahragaAir();
                 menuCheck = false;
                 ticketEligibility = true;
 
@@ -225,10 +231,10 @@ public class Mainproject {
                 if (jenisPembayaran > 0 && jenisPembayaran < 4) {
                     inputMatches = false;
                 } else {
-                    System.out.println("inputan anda salah");
+                    System.out.println("Inputan anda salah");
                 }
             }
-            System.out.println("selamat, tiket anda telah keluar, untuk melihat tiket silahkan lihat menu ke 4");
+            System.out.println("Selamat, tiket anda telah keluar, untuk melihat tiket silahkan lihat menu ke 4");
             tiketCounterKapal++;
         }
     }
@@ -238,7 +244,7 @@ public class Mainproject {
         int jenisTkt = 0;
         if (ticketEligibility == false) {
             System.out.println("Tiket anda masih kosong");
-            System.out.println("maaf, anda harus memesan tiket terlebih dahulu");
+            System.out.println("Maaf, anda harus memesan tiket terlebih dahulu");
             return;
 
         }
@@ -254,7 +260,7 @@ public class Mainproject {
             if (jenisTkt > 0 && jenisTkt < 4) {
                 inputMatches = true;
             } else {
-                System.out.println("inputan anda salah");
+                System.out.println("Inputan anda salah");
             }
         }
 
@@ -291,9 +297,8 @@ public class Mainproject {
             }
 
         } else if (jenisTkt == 3) {
-
+            // munculin tiket anggi
         }
-
     }
 
     public static void paketWisata() {
@@ -304,19 +309,19 @@ public class Mainproject {
         } else {
             System.out.println("--------------------PAKET WISATA-----------------");
             System.out.println("TUJUAN DESTINASI : ");
-            System.out.println("    -Tempat destinasi : ");
+            System.out.print("    -Tempat destinasi : ");
             for (int i = 0; i < destinasi.length; i++)
                 System.out.println("     " + (i + 1) + ". " + destinasi[i]);
             System.out.println();
             while (!inputMatches) {
-                System.out.println("    Pilih tempat wisata anda : ");
+                System.out.print("    Pilih tempat wisata anda : ");
                 destinasiPilihanWisata[tiketCounterWisata] = input.nextLine();
                 for (String keyword : destinasi) {
                     if (destinasiPilihanWisata[tiketCounterWisata].equalsIgnoreCase(keyword))
                         inputMatches = true;
                 }
                 if (inputMatches == false)
-                    System.out.println("inputan anda salah");
+                    System.out.println("Inputan anda salah");
             }
             System.out.println();
             System.out.println("PAKET WISATA : ");
@@ -330,7 +335,7 @@ public class Mainproject {
                 if (paketWisataPilihan[tiketCounterWisata] > 0 && paketWisataPilihan[tiketCounterWisata] < 4)
                     inputMatches = false;
                 else
-                    System.out.println("inputan anda salah ");
+                    System.out.println("Inputan anda salah ");
             }
             while (!inputMatches) {
                 if (paketWisataPilihan[tiketCounterWisata] == 1) {
@@ -346,7 +351,7 @@ public class Mainproject {
                         System.out.print("    Berapa banyak orang yang ingin anda bawa : ");
                         banyakOrangPaket3[tiketCounterWisata] = input.nextInt();
                         if (banyakOrangPaket3[tiketCounterWisata] < 1)
-                            System.out.println("banyak orang harus lebih dari 1");
+                            System.out.println("Banyak orang harus lebih dari 1");
 
                     } while (banyakOrangPaket3[tiketCounterWisata] < 1);
                     do {
@@ -360,18 +365,18 @@ public class Mainproject {
                         banyakTempatWisataPaket3[tiketCounterWisata] = input.nextInt();
                         input.nextLine();
                         if (banyakTempatWisataPaket3[tiketCounterWisata] < 1)
-                            System.out.println("banyak objek wisata harus lebih dari 1");
+                            System.out.println("Banyak objek wisata harus lebih dari 1");
                     } while (banyakTempatWisataPaket3[tiketCounterWisata] < 1);
                     input.nextLine();
                 }
-                System.out.print("    apakah paket di atas sudah benar (iya/tidak): ");
+                System.out.print("    Apakah paket di atas sudah benar (iya/tidak): ");
                 String check = input.nextLine();
                 if (check.equalsIgnoreCase("iya"))
                     inputMatches = true;
                 else if (check.equalsIgnoreCase("tidak"))
                     System.out.println();
                 else
-                    System.out.println("inputan anda salah tetapi kami anggap itu tidak");
+                    System.out.println("Inputan anda salah tetapi kami anggap itu tidak");
             }
             System.out.println("JADWAL PAKET WISATA : ");
             while (inputMatches) {
@@ -382,7 +387,7 @@ public class Mainproject {
                         inputMatches = false;
                 }
                 if (inputMatches == true)
-                    System.out.println("inputan anda bukan nama hari");
+                    System.out.println("Inputan anda bukan nama hari");
             }
             while (!inputMatches) {
                 System.out.print("    -Masukkan tanggal (angka) : ");
@@ -390,7 +395,7 @@ public class Mainproject {
                 if (tanggalWisata[tiketCounterWisata] < 32 && tanggalWisata[tiketCounterWisata] > 0) {
                     inputMatches = true;
                 } else {
-                    System.out.println("inputan anda salah");
+                    System.out.println("Inputan anda salah");
                 }
             }
             while (inputMatches) {
@@ -428,17 +433,25 @@ public class Mainproject {
                 if (jenisPembayaran > 0 && jenisPembayaran < 4) {
                     inputMatches = true;
                 } else {
-                    System.out.println("inputan anda salah");
+                    System.out.println("Inputan anda salah");
                 }
             }
-            System.out.println("selamat, tiket anda telah keluar, untuk melihat tiket silahkan lihat menu ke 4");
+            System.out.println("Selamat, tiket anda telah keluar, untuk melihat tiket silahkan lihat menu ke 4");
             tiketCounterWisata++;
         }
     }
 
-    public static void olaragaAir() {
-        System.out.println("--------------------OLAHRAGA AIR-----------------");
-        System.out.println("TUJUAN DESTINASI : ");
+    public static void olahragaAir() {
+        boolean inputMatches = false;
 
+        if (tiketCounterOlahraga == olahragaAv) {
+            System.out.println("Kecukupan tiket sudah habis");
+        } else {// mekanisme tiket anggi
+
+        }
+        olahragaAv++;
     }
 }
+
+// jikalau tanggal, bulan dan tahun diinputkan selain angka maka akan error
+// ada sistem buffer
