@@ -1,41 +1,41 @@
 import java.util.Scanner;
 
 public class Mainproject {
-    public static Scanner input = new Scanner(System.in);
-    public static String[] destinasi = { "Labuan Bajo", "Lombok", "Kepulauan Seribu", "Banda Neira", "Belitung",
+    static Scanner input = new Scanner(System.in);
+    static String[] destinasi = { "Labuan Bajo", "Lombok", "Kepulauan Seribu", "Banda Neira", "Belitung",
             "Bangka", "Danau Toba", "Gili", "Karimunjawa", "Wakatobi" };
-    public static String[] destinasiKhususOlahraga = { "Ancol", "Manta Rhei Dive Center", "DSM Dive-Gili Trawangan",
+    static String[] destinasiKhususOlahraga = { "Ancol", "Manta Rhei Dive Center", "DSM Dive-Gili Trawangan",
             "EcoTravel Bukit Lawangan", "Adventure Scuba Diving Bali" };
-    public static String[] kapal = { "Yatch Catamaran 1.2", "Utopian Catamaran", "Kapal Mancing Ryan", "Pinissi Boat",
+    static String[] kapal = { "Yatch Catamaran 1.2", "Utopian Catamaran", "Kapal Mancing Ryan", "Pinissi Boat",
             "Yatch Azimuth", "Yatch Catamaran FeadShip", "Yacth Accura 49 Luxury" };
-    public static String[] paketWisata = { "Paket 1", "Paket 2", "Paket 3" },
+    static String[] paketWisata = { "Paket 1", "Paket 2", "Paket 3" },
             paketOlahraga = { "Paket 1", "Paket 2", "Paket 3" };
-    public static String[] fiturPaket = {
+    static String[] fiturPaket = {
             "Fitur; -untuk 2 orang, -Hotel Bintang 5, -Menginap 2 Malam, -4 Tempat Wisata Include",
             "Fitur; -untuk 4 orang, -Hotel Bintang 5, -Menginap 3 Malam, -6 Tempat Wisata Include", },
             fiturPaketOlahraga = {
                     "Fitur; -untuk 2 orang, -Jetski, -Kano",
                     "Fitur; -untuk 4 orang, -Ski air, -Flyboard, -Polo air" };
-    public static int[] hargaPaketWisata = { 5000000, 13000000 };
-    public static int[] hargaPaketOlahraga = { 4500000, 12000000 };
-    public static int[] hargaKapal = { 40000000, 24000000, 200000, 44000000, 56000000, 50000000, 90000000 };
-    public static int[] kapalPilihan = new int[20], paketWisataPilihan = new int[30], banyakOrangPaket3 = new int[5],
+    static int[] hargaPaketWisata = { 5000000, 13000000 };
+    static int[] hargaPaketOlahraga = { 4500000, 12000000 };
+    static int[] hargaKapal = { 40000000, 24000000, 200000, 44000000, 56000000, 50000000, 90000000 };
+    static int[] kapalPilihan = new int[20], paketWisataPilihan = new int[30], banyakOrangPaket3 = new int[5],
             banyakTempatWisataPaket3 = new int[5], banyakHariPaket3 = new int[5], hargaTotal = new int[9],
             hargaTotalOlahraga = new int[10], banyakOrangPaket3Olahraga = new int[10],
             banyakHariPaket3Olahraga = new int[20], banyakJenisOlahragaPaket3 = new int[10],
             paketPilihanOlahraga = new int[10];
 
-    public static int kapalAv = 7, wisataAv = 20, olahragaAv = 10, jenisPembayaran;
-    public static String[] destinasiPilihanWisata = new String[20], destinasiPilihanKapal = new String[10],
+    static int kapalAv = 7, wisataAv = 20, olahragaAv = 10, jenisPembayaran;
+    static String[] destinasiPilihanWisata = new String[20], destinasiPilihanKapal = new String[10],
             destinasiPilihanOlahraga = new String[20];
-    public static String[] hari = new String[10], hariWisata = new String[20], hariOlahraga = new String[20];
-    public static int[] bulan = new int[10], tahun = new int[10], tanggal = new int[10], bulanWisata = new int[20],
+    static String[] hari = new String[10], hariWisata = new String[20], hariOlahraga = new String[20];
+    static int[] bulan = new int[10], tahun = new int[10], tanggal = new int[10], bulanWisata = new int[20],
             tahunWisata = new int[20], tanggalWisata = new int[20], tahunOlahraga = new int[20],
             tanggalOlahraga = new int[20], bulanOlahraga = new int[20];
-    public static int tiketCounterKapal = 0, tiketCounterWisata = 0, tiketCounterOlahraga = 0;
-    public static boolean ticketEligibility = false, menuCheck = false;
-    public static String namaLogin;
-    public static String[] keywordsForHari = { "senin", "selasa", "rabu", "kamis", "jumat", "sabtu", "minggu" };
+    static int tiketCounterKapal = 0, tiketCounterWisata = 0, tiketCounterOlahraga = 0;
+    static boolean ticketEligibility = false, menuCheck = false;
+    static String namaLogin;
+    static String[] keywordsForHari = { "senin", "selasa", "rabu", "kamis", "jumat", "sabtu", "minggu" };
 
     public static void main(String[] args) {// metode main atau yg utama
 
