@@ -498,9 +498,9 @@ public class Mainproject {
             }
             while (!inputMatches) {
                 if (paketPilihanOlahraga[tiketCounterOlahraga] == 1) {
-                    System.out.println(" " + fiturPaketOlahraga[1]);
+                    System.out.println(" " + fiturPaketOlahraga[0]);
                 } else if (paketPilihanOlahraga[tiketCounterOlahraga] == 2) {
-                    System.out.println(" " + fiturPaketOlahraga[2]);
+                    System.out.println(" " + fiturPaketOlahraga[1]);
                 } else if (paketPilihanOlahraga[tiketCounterOlahraga] == 3) {
                     System.out.println(
                             "Fitur; didalam paket ini akan menentukan banyak orang, banyak olahraga air, banyak hari");
@@ -567,6 +567,7 @@ public class Mainproject {
             tahunOlahraga[tiketCounterOlahraga] = input.nextInt();
             System.out.println();
             System.out.println("HARGA : ");
+
             if (paketPilihanOlahraga[tiketCounterOlahraga] == 3) {
                 hargaTotalOlahraga[tiketCounterOlahraga] = 450000 * (banyakHariPaket3Olahraga[tiketCounterOlahraga]
                         + banyakOrangPaket3Olahraga[tiketCounterOlahraga]
@@ -578,12 +579,13 @@ public class Mainproject {
                 System.out.println("    3. Gopay ");
             } else {
                 System.out.println(
-                        "    -Harga total : Rp " + hargaPaketOlahraga[paketPilihanOlahraga[tiketCounterOlahraga]]);
+                        "    -Harga total : Rp " + hargaPaketOlahraga[paketPilihanOlahraga[tiketCounterOlahraga] - 1]);
                 System.out.println("    -Jenis pembayaran : ");
                 System.out.println("    1. Kartu debit");
                 System.out.println("    2. Cash");
                 System.out.println("    3. Gopay");
-                hargaTotalOlahraga[tiketCounterOlahraga] = hargaPaketOlahraga[paketPilihanOlahraga[tiketCounterOlahraga]];
+                hargaTotalOlahraga[tiketCounterOlahraga] = hargaPaketOlahraga[paketPilihanOlahraga[tiketCounterOlahraga]
+                        - 1];
             }
             while (!inputMatches) {
                 System.out.print("    Pilih salah satu jenis pembayaran (nomor) : ");
