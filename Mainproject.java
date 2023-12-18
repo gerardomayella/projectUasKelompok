@@ -272,7 +272,8 @@ public class Mainproject {
                 System.out.println();
                 System.out.println("============================================");
                 System.out.println("Nama Penyewa : " + namaLogin);
-                System.out.println("Hari/Tanggal/Tahun : " + hari[i] + " / " + tanggal[i] + " / " + tahun[i]);
+                System.out.println("Hari/Tanggal/Bulan/Tahun : " + hari[i] + " / " + tanggal[i] + " / " + bulan[i]
+                        + " / " + tahun[i]);
                 System.out.println("Jenis Kapal : " + kapal[kapalPilihan[i] - 1]);
                 System.out.println("Destinasi : " + destinasiPilihanKapal[i]);
                 System.out.println("Harga Total : Rp " + hargaKapal[kapalPilihan[i] - 1]);
@@ -286,7 +287,8 @@ public class Mainproject {
                 System.out.println("=============================================");
                 System.out.println("Nama Pembeli : " + namaLogin);
                 System.out.println(
-                        "Hari/Tanggal/Tahun : " + hariWisata[i] + " / " + tanggalWisata[i] + " / " + tahunWisata[i]);
+                        "Hari/Tanggal/Bulan/Tahun : " + hariWisata[i] + " / " + tanggalWisata[i] + " / "
+                                + bulanWisata[i] + " / " + tahunWisata[i]);
                 System.out.println("Jenis Paket : " + paketWisataPilihan[i]);
                 if (paketWisataPilihan[i] == 3) {
                     System.out.println("Banyak Orang : " + banyakOrangPaket3[i]);
@@ -305,7 +307,8 @@ public class Mainproject {
                 System.out.println("=============================================");
                 System.out.println("Nama pembeli : " + namaLogin);
                 System.out.println(
-                        "Hari/Tanggal/Tahun : " + hariOlahraga[i] + "/" + tanggalOlahraga[i] + "/" + tahunOlahraga[i]);
+                        "Hari/Tanggal/Bulam/Tahun : " + hariOlahraga[i] + "/" + tanggalOlahraga[i] + "/ "
+                                + bulanOlahraga[i] + " / " + tahunOlahraga[i]);
                 System.out.println("Jenis Paket : " + paketPilihanOlahraga[i]);
                 if (paketPilihanOlahraga[i] == 3) {
                     System.out.println("Banyak Orang : " + banyakOrangPaket3Olahraga[i]);
@@ -596,7 +599,7 @@ public class Mainproject {
                     System.out.println("Inputan anda salah");
                 }
             }
-            System.out.println("Selamat, tiket anda telah keluar, untuk melihat tiket silahkan lihat menut ke 4");
+            System.out.println("Selamat, tiket anda telah keluar, untuk melihat tiket silahkan lihat menu ke 4");
         }
         tiketCounterOlahraga++;
     }
