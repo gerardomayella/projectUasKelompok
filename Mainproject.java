@@ -442,12 +442,13 @@ public class Mainproject {
                 System.out.println("      2. Cash  ");
                 System.out.println("      3. Gopay ");
             } else {
-                System.out.println("    -Harga total : Rp " + hargaPaketWisata[paketWisataPilihan[tiketCounterWisata]]);
+                System.out.println(
+                        "    -Harga total : Rp " + hargaPaketWisata[paketWisataPilihan[tiketCounterWisata] - 1]);
                 System.out.println("     -Jenis pembayaran : ");
                 System.out.println("      1. Kartu debit");
                 System.out.println("      2. Cash");
                 System.out.println("      3. Gopay");
-                hargaTotal[tiketCounterWisata] = hargaPaketWisata[paketWisataPilihan[tiketCounterWisata]];
+                hargaTotal[tiketCounterWisata] = hargaPaketWisata[paketWisataPilihan[tiketCounterWisata] - 1];
             }
             while (!inputMatches) {
                 System.out.print("          Pilih salah satu jenis pembayaran (nomor) : ");
